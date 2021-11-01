@@ -58,10 +58,10 @@ class DingDingPlugin(NotificationPlugin):
             "msgtype": "markdown",
             "markdown": {
                 "title": title,
-                "text": u"#### {title} \n\n > {message} \n\n > {release} \n\n > {environment} \n\n [详细信息]({url})".format(
+                "text": u"#### {title} \n\n > {message} \n\n > {environment} \n\n [详细信息]({url})".format(
                     title=title,
                     message=event.title or event.message,
-                    release=event.get_tag("release"),
+                    #release=event.get_tag("release"),
                     environment=event.get_tag("environment"),
                     url=u"{}events/{}/".format(group.get_absolute_url(), event.event_id),
                 )
