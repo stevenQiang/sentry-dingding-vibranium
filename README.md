@@ -15,4 +15,4 @@ sentry-dingding-maxbon
 
 ## 告警效果
 
-![image](https://user-images.githubusercontent.com/3078554/139641616-52eca0ff-9cec-478f-ac7b-8e8cd34b160c.png)
+![image](https://user-images.githubusercontent.com/3078554/139641752-8f5d7fba-5a4a-4b95-b61e-0df3736c759c.png)
