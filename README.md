@@ -1,21 +1,16 @@
 # Sentry-DingDing
 
-Fork `https://github.com/anshengme/sentry-dingding`
+Fork `https://github.com/cench/sentry-10-dingding`
 
-Fix  `Sentry 10 or the same error`
-
-[sentry-dingding issues](https://github.com/anshengme/sentry-dingding/issues/22)
-
-```
-'Event' object has no attribute 'id' 
-```
+# 添加
+# 告警内容添加版本和tag环境信息
 
 ## 安装
 
 ```
 # requirement.txt
 
-sentry-10-dingding
+sentry-dingding-maxbon
 ```
 
 docker-compose 安装的直接改成这个插件包就好了，如果帮你解决了问题，麻烦给个小星星.
