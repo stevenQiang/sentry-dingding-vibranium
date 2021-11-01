@@ -2,8 +2,8 @@
 
 Fork `https://github.com/cench/sentry-10-dingding`
 
-# 添加
-# 告警内容添加版本和tag环境信息
+## 添加
+告警内容添加版本和tag环境信息
 
 ## 安装
 
