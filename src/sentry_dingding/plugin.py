@@ -15,18 +15,18 @@ class DingDingPlugin(NotificationPlugin):
     """
     Sentry plugin to send error counts to DingDing.
     """
-    author = 'season'
-    author_url = 'https://github.com/cench/sentry-10-dingding'
+    author = 'maxbon'
+    author_url = 'https://github.com/jacksnowfuck/sentry-dingding-maxbon'
     version = sentry_dingding.VERSION
     description = 'Send error counts to DingDing.'
     resource_links = [
-        ('Source', 'https://github.com/cench/sentry-10-dingding'),
-        ('Bug Tracker', 'https://github.com/cench/sentry-10-dingding/issues'),
-        ('README', 'https://github.com/cench/sentry-10-dingding/blob/master/README.md'),
+        ('Source', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon'),
+        ('Bug Tracker', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon/issues'),
+        ('README', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon/blob/master/README.md'),
     ]
 
-    slug = 'DingDing'
-    title = 'DingDing'
+    slug = 'DingDing4maxbon'
+    title = 'DingDing4maxbon'
     conf_key = slug
     conf_title = title
     project_conf_form = DingDingOptionsForm
@@ -52,15 +52,17 @@ class DingDingPlugin(NotificationPlugin):
 
         access_token = self.get_option('access_token', group.project)
         send_url = DingTalk_API.format(token=access_token)
-        title = u'【%s】的项目异常' % event.project.slug
+        title = u'【%s】【%s】的项目异常' % (event.get_tag("level"), event.project.slug)
 
         data = {
             "msgtype": "markdown",
             "markdown": {
                 "title": title,
-                "text": u"#### {title} \n\n > {message} \n\n [详细信息]({url})".format(
+                "text": u"#### {title} \n\n > {message} \n\n > {release} \n\n > {environment} \n\n [详细信息]({url})".format(
                     title=title,
                     message=event.title or event.message,
+                    release=event.get_tag("release"),
+                    environment=event.get_tag("environment"),
                     url=u"{}events/{}/".format(group.get_absolute_url(), event.event_id),
                 )
             }
