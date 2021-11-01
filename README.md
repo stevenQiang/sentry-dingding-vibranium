@@ -1,4 +1,4 @@
-# Sentry-DingDing
+# Sentry-DingDing-maxbon
 
 Fork `https://github.com/cench/sentry-10-dingding`
 
