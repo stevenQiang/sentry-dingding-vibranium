@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="sentry-dingding-maxbon",
-    version='1.0.0',
+    version='1.0.3',
     author='season',
     author_email='zhudetaluo@gmail.com',
     url='https://github.com/jacksnowfuck/sentry-dingding-maxbon',
