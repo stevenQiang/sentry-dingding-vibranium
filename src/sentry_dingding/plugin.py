@@ -38,7 +38,12 @@ class DingDingPlugin(NotificationPlugin):
         return bool(self.get_option('access_token', project))
 
     def notify_users(self, group, event, *args, **kwargs):
-        self.post_process(group, event, *args, **kwargs)
+        if self.should_notify(group, event):
+            self.logger.info('send msg to dingtalk robot yes')
+            self.post_process(group, event, *args, **kwargs)
+        else:
+            self.logger.info('send msg to dingtalk robot no')
+            return
 
     def post_process(self, group, event, *args, **kwargs):
         """
