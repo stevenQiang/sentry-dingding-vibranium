@@ -37,15 +37,15 @@ class DingDingPlugin(NotificationPlugin):
         """
         return bool(self.get_option('access_token', project))
 
-    def notify_users(self, group, event, *args, **kwargs):
+    def notify_users(self, group, event, triggering_rules, fail_silently=False, *args, **kwargs):
         if self.should_notify(group, event):
             self.logger.info('send msg to dingtalk robot yes')
-            self.post_process(group, event, *args, **kwargs)
+            self.post_process(group, event, triggering_rules, *args, **kwargs)
         else:
             self.logger.info('send msg to dingtalk robot no')
             return
 
-    def post_process(self, group, event, *args, **kwargs):
+    def post_process(self, group, event, triggering_rules, *args, **kwargs):
         """
         Process error.
         """
@@ -66,6 +66,7 @@ class DingDingPlugin(NotificationPlugin):
                 "text": u"#### {title} \n\n > {message} \n\n > {environment} \n\n [详细信息]({url})".format(
                     title=title,
                     message=event.title or event.message,
+                    triggering_rules=triggering_rules,
                     #release=event.get_tag("release"),
                     environment=event.get_tag("environment"),
                     url=u"{}events/{}/".format(group.get_absolute_url(), event.event_id),
