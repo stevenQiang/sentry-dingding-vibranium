@@ -63,7 +63,7 @@ class DingDingPlugin(NotificationPlugin):
             "msgtype": "markdown",
             "markdown": {
                 "title": title,
-                "text": u"#### {title} \n\n > {message} \n\n > {environment} \n\n [详细信息]({url})".format(
+                "text": u"#### {title} \n\n > {message} \n\n >告警规则：{triggering_rules} \n\n > 环境：{environment} \n\n [详细信息]({url})".format(
                     title=title,
                     message=event.title or event.message,
                     triggering_rules=triggering_rules,
