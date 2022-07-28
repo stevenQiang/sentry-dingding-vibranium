@@ -15,18 +15,18 @@ class DingDingPlugin(NotificationPlugin):
     """
     Sentry plugin to send error counts to DingDing.
     """
-    author = 'maxbon'
-    author_url = 'https://github.com/jacksnowfuck/sentry-dingding-maxbon'
+    author = 'steven'
+    author_url = 'https://github.com/stevenQiang/sentry-dingding-vibranium'
     version = sentry_dingding.VERSION
     description = 'Send error counts to DingDing.'
     resource_links = [
-        ('Source', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon'),
-        ('Bug Tracker', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon/issues'),
-        ('README', 'https://github.com/jacksnowfuck/sentry-dingding-maxbon/blob/master/README.md'),
+        ('Source', 'https://github.com/stevenQiang/sentry-dingding-vibranium'),
+        ('Bug Tracker', 'https://github.com/stevenQiang/sentry-dingding-vibranium/issues'),
+        ('README', 'https://github.com/stevenQiang/sentry-dingding-vibranium/blob/master/README.md'),
     ]
 
-    slug = 'DingDing4maxbon'
-    title = 'DingDing4maxbon'
+    slug = 'DingDingVibranium'
+    title = 'DingDingVibranium'
     conf_key = slug
     conf_title = title
     project_conf_form = DingDingOptionsForm
@@ -37,15 +37,15 @@ class DingDingPlugin(NotificationPlugin):
         """
         return bool(self.get_option('access_token', project))
 
-    def notify_users(self, group, event, triggering_rules, fail_silently=False, *args, **kwargs):
+    def notify_users(self, group, event, triggering_rules, fail_silently=False, **kwargs):
         if self.should_notify(group, event):
             self.logger.info('send msg to dingtalk robot yes')
-            self.post_process(group, event, triggering_rules, *args, **kwargs)
+            self.post_process(group, event, triggering_rules, **kwargs)
         else:
             self.logger.info('send msg to dingtalk robot no')
             return
 
-    def post_process(self, group, event, triggering_rules, *args, **kwargs):
+    def post_process(self, group, event, triggering_rules, **kwargs):
         """
         Process error.
         """

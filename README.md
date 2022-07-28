@@ -1,6 +1,13 @@
-# Sentry-DingDing-maxbon
+# Sentry-DingDing-vibranium
 
-Fork `https://github.com/cench/sentry-10-dingding`
+Fork `https://github.com/jacksnowfuck/sentry-dingding-maxbon`
+
+## fork原因
+因为sentry用的是dockerhub上面的9.1.2版本，直接使用sentry-dingding-maxbon这个包会有报错
+```
+celery.task 会报: post_process() takes at least 4 arguments (3 given)
+```
+
 
 ## 添加功能
 告警内容添加tag环境信息
