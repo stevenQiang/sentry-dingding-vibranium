@@ -15,12 +15,7 @@ celery.task 会报: post_process() takes at least 4 arguments (3 given)
 兼容系统自带告警策略配置
 
 ## 安装
-
-```
-# requirement.txt
-
-sentry-dingding-maxbon
-```
+因为我是docker镜像部署的，所以直接在dockerfile里面加上RUN pip install sentry-dingding-vibranium。就可以了，不用找requirement.txt.
 
 ## 告警效果
 
